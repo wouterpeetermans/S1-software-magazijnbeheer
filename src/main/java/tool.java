@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class tool {
+public class tool extends JFrame {
     private JTabbedPane tabbedPane1;
     private JTextPane lendedPane;
     private JTextField lenderFieldLent;
@@ -22,8 +22,14 @@ public class tool {
     private JButton addTypeButton;
     private JButton addItemButton;
     private JButton removeItemButton;
+    private JPanel rootPanel;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
+    }
+
+    public tool() {
+        add(rootPanel);
+        setSize(600,400);
     }
 }
