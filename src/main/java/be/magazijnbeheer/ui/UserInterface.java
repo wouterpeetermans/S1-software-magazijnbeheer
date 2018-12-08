@@ -1,9 +1,13 @@
+package be.magazijnbeheer.ui;
+
+import be.magazijnbeheer.core.viewModel;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
-public class tool extends JFrame {
+public class UserInterface extends JFrame {
     private JTabbedPane tabbedPane1;
     private JTextPane lendedPane;
     private JTextField lenderIDFieldLent;
@@ -27,11 +31,14 @@ public class tool extends JFrame {
     private JButton removeItemButton;
     private JPanel rootPanel;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    private void startUI() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
     }
 
-    public tool() {
+    public UserInterface() {
+        startUI();
         final char[] password = {'U', 'A'};
         add(rootPanel);
         setSize(600,400);

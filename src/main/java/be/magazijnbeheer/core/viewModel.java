@@ -1,3 +1,7 @@
+package be.magazijnbeheer.core;
+
+import be.magazijnbeheer.core.Database;
+
 public class viewModel {
     public static Integer addType(String type) {
         return Database.addType(type);
