@@ -26,7 +26,7 @@ public class ViewModel {
     }
 
     public void addLenderToItem(String lenderID, String itemID) {
-        database.addLenderToItem(Integer.getInteger(lenderID), new Item(Integer.parseInt(itemID)));
+        database.addLenderToItem(Integer.parseInt(lenderID), new Item(Integer.parseInt(itemID)));
     }
 
     public void removeLenderFromItem(String itemID) {

@@ -58,6 +58,7 @@ public class Database {
 
 
 
+
     public static Database getInstance(){
         return instance;
     }
@@ -129,19 +130,59 @@ public class Database {
     }
 
     public void addLenderToItem(Integer lenderID, Item item) {
-        // TODO: check getLenderID and getItemID, then addLenderIDToItem
+        String sql = "UPDATE Items SET LenderID = ? "
+                + "WHERE ID = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,lenderID);
+            pstmt.setInt(2,item.getId());
+            pstmt.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+            return;
+        }
+
+
         System.out.println("added " + item.getId() + " " + lenderID);
     }
 
     public void removeLenderFromItem(Item item) {
-        // TODO: check getLenderID and getItemID, then removeLenderIDToItem
+        String sql = "UPDATE Items SET LenderID = NULL "
+                + "WHERE ID = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,item.getId());
+            pstmt.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+            return;
+        }
         System.out.println(item.getId() + " removed");
     }
 
     public String getItemsLender(Integer lenderID) {
-        // TODO: check lenderID, get items with that ID
+        String sql = "SELECT Items.ID, TypeName, LenderID FROM Items "
+                + "INNER JOIN Types on Items.TypeID = Types.ID "
+                + "WHERE LenderID = ?";
+        System.out.println(sql);
+        ResultSet set;
+        String output = "";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,lenderID);
+            set = pstmt.executeQuery();
+
+            while (set.next()){
+                output += set.getInt("ID") + "\t";
+                output += set.getString("TypeName") + "\n";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e.toString();
+        }
         System.out.println("items lended by " + lenderID + " fetched");
-        return "demo";
+
+        return output;
     }
 
     public Integer getAmountItemsOfType(String type){
