@@ -1,5 +1,7 @@
 package be.magazijnbeheer.core;
 
+import java.io.Serializable;
+
 public class ViewModel {
     private Database database;
 
@@ -16,7 +18,7 @@ public class ViewModel {
     }
 
     public void removeItem(String itemID) {
-        database.removeItemOfType(new Item(Integer.getInteger(itemID)));
+        database.removeItemOfType(new Item(Integer.parseInt(itemID)));
     }
 
     public void addLender(String name, String address) {
@@ -24,14 +26,14 @@ public class ViewModel {
     }
 
     public void addLenderToItem(String lenderID, String itemID) {
-        database.addLenderToItem(Integer.getInteger(lenderID), new Item(Integer.getInteger(itemID)));
+        database.addLenderToItem(Integer.getInteger(lenderID), new Item(Integer.parseInt(itemID)));
     }
 
     public void removeLenderFromItem(String itemID) {
-        database.removeLenderFromItem(new Item(Integer.getInteger(itemID)));
+        database.removeLenderFromItem(new Item(Integer.parseInt(itemID)));
     }
 
     public String viewItemsLender(String lenderID) {
-        return database.getItemsLender(Integer.getInteger(lenderID));
+        return database.getItemsLender(Integer.parseInt(lenderID));
     }
 }

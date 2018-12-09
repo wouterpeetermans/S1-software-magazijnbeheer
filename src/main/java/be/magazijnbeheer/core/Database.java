@@ -101,12 +101,30 @@ public class Database {
     }
 
     public void removeItemOfType (Item item) {
-        // TODO: getTypeID, if doesn't exists, addType
+        String sql = "DELETE FROM Items WHERE ID = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,item.getId());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
+        }
         System.out.println(item + " removed");
     }
 
     public void addLender(Lender lender) {
-        // TODO: getLenderID, if doesn't exists, addLender
+        String sql = "INSERT INTO Lenders(ID,Name,Address) VALUES(?,?,?)";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,lender.getId());
+            pstmt.setString(2,lender.getName());
+            pstmt.setString(3,lender.getAddress());
+            pstmt.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+            return;
+        }
         System.out.println(lender.getName() + " " + lender.getAddress() + " added");
     }
 
