@@ -11,12 +11,12 @@ public class Database {
 
     private Database(){
 
-        try {
-            //Class.forName("org.sqlite.JDBC");
-            DriverManager.registerDriver(new org.sqlite.JDBC());
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
+//        try {
+//            //Class.forName("org.sqlite.JDBC");
+//            DriverManager.registerDriver(new org.sqlite.JDBC());
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
 
 
         String url = "jdbc:sqlite:data.db";
