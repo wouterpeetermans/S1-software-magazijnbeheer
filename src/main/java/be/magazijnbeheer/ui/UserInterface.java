@@ -51,6 +51,7 @@ public class UserInterface extends JFrame {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     viewModel.addType(addTypeTextField.getText());
                 } else {
+                    JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");
                 }
             }
@@ -60,6 +61,7 @@ public class UserInterface extends JFrame {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     viewModel.addItem(addItemComboBox.getSelectedItem().toString());
                 } else {
+                    JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");
                 }
             }
@@ -69,6 +71,7 @@ public class UserInterface extends JFrame {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     viewModel.removeItem(removeItemTextField.getText());
                 } else {
+                    JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");
                 }
             }
