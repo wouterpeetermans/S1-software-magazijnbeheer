@@ -35,7 +35,11 @@ public class ViewModel {
     }
 
     public String viewItemsLender(String lenderID) {
-        return database.getItemsLender(Integer.parseInt(lenderID));
+        if (lenderID.equals("stock")) {
+            return database.getStock();
+        } else {
+            return database.getItemsLender(Integer.parseInt(lenderID));
+        }
     }
 
     public ArrayList getAllTypes() {

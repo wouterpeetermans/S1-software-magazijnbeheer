@@ -167,12 +167,11 @@ public class Database {
         String sql = "SELECT Items.ID, TypeName, LenderID FROM Items "
                 + "INNER JOIN Types on Items.TypeID = Types.ID "
                 + "WHERE LenderID = ?";
-        System.out.println(sql);
         ResultSet set;
         String output = "";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1,lenderID);
+            pstmt.setInt(1, lenderID);
             set = pstmt.executeQuery();
 
             while (set.next()){
@@ -187,9 +186,32 @@ public class Database {
 
         return output;
     }
+
+    public String getStock() {
+        String sql = "SELECT Items.ID, TypeName, LenderID FROM Items "
+                + "INNER JOIN Types on Items.TypeID = Types.ID "
+                + "WHERE LenderID IS NULL";
+        ResultSet set;
+        String output = "";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            set = pstmt.executeQuery();
+
+            while (set.next()){
+                output += set.getInt("ID") + "\t";
+                output += set.getString("TypeName") + "\n";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e.toString();
+        }
+        System.out.println("items in stock fetched");
+
+        return output;
+    }
+
     public ArrayList getAllTypes() {
         String sql = "SELECT TypeName FROM Types";
-        System.out.println(sql);
         ResultSet set;
         ArrayList<String> output = new ArrayList<String>();
         try {
@@ -206,7 +228,6 @@ public class Database {
             return output;
         }
         System.out.println(output);
-
         return output;
     }
 
