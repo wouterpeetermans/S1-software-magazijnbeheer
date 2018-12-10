@@ -1,5 +1,7 @@
 package be.magazijnbeheer.core;
 
+import javax.help.Map;
+import javax.swing.*;
 import java.io.Serializable;
 import java.sql.*;
 
@@ -56,16 +58,9 @@ public class Database {
 
     }
 
-
-
-
     public static Database getInstance(){
         return instance;
     }
-
-
-
-
 
     public Integer addItemOfType(Item item) {
         String sql = "INSERT INTO Items(TypeID) VALUES(?)";//todo error on type not existing
@@ -116,17 +111,24 @@ public class Database {
 
     public void addLender(Lender lender) {
         String sql = "INSERT INTO Lenders(ID,Name,Address) VALUES(?,?,?)";
+        int lenderID;
+        lenderID = -1;
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1,lender.getId());
             pstmt.setString(2,lender.getName());
             pstmt.setString(3,lender.getAddress());
             pstmt.executeUpdate();
+            ResultSet rs = pstmt.getGeneratedKeys();
+            if(rs.next()){
+                lenderID = rs.getInt(1);
+            }
         } catch (SQLException e){
             e.printStackTrace();
             return;
         }
-        System.out.println(lender.getName() + " " + lender.getAddress() + " added");
+        JOptionPane.showMessageDialog(null, lender.getName() + " added\nAddress: " + lender.getAddress() + "\nID: " + Integer.toString(lenderID), "new lender", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println(lender.getName() + " added, ID " + Integer.toString(lenderID));
     }
 
     public void addLenderToItem(Integer lenderID, Item item) {
