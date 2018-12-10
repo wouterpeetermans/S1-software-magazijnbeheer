@@ -42,6 +42,7 @@ public class UserInterface extends JFrame {
         this.pack();
         this.setVisible(true);
         addItemComboBox.setModel(new DefaultComboBoxModel(viewModel.getAllTypes().toArray()));
+        itemsPane.setText(viewModel.getItemsOfType(addItemComboBox.getSelectedItem().toString()));
     }
 
     public UserInterface() {
@@ -66,6 +67,7 @@ public class UserInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     Item item = viewModel.addItem(addItemComboBox.getSelectedItem().toString());
+                    itemsPane.setText(viewModel.getItemsOfType(addItemComboBox.getSelectedItem().toString()));
                     if (item != null){
                         JOptionPane.showMessageDialog(null,"item of type: " + item.getType().getTypeName() + "\n added with ID: " + Integer.toString(item.getId()), "new item", JOptionPane.INFORMATION_MESSAGE);
                     } else {
@@ -81,6 +83,7 @@ public class UserInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     viewModel.removeItem(removeItemTextField.getText());
+                    itemsPane.setText(viewModel.getItemsOfType(addItemComboBox.getSelectedItem().toString()));
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");

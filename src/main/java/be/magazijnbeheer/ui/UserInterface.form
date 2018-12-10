@@ -50,6 +50,9 @@
                         <properties>
                           <text value="Klant ID"/>
                         </properties>
+                        <clientProperties>
+                          <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                        </clientProperties>
                       </component>
                       <vspacer id="ef656">
                         <constraints>
@@ -73,6 +76,9 @@
                         <properties>
                           <text value="Item ID"/>
                         </properties>
+                        <clientProperties>
+                          <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                        </clientProperties>
                       </component>
                       <component id="533c" class="javax.swing.JButton" binding="lentButton">
                         <constraints>
@@ -92,7 +98,7 @@
                       </component>
                     </children>
                   </grid>
-                  <grid id="786a5" binding="overviewPlane" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="786a5" binding="overviewPlane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -111,19 +117,15 @@
                       <component id="cacd7" class="javax.swing.JTextPane" binding="lendedPane">
                         <constraints>
                           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="50"/>
+                            <preferred-size width="150" height="150"/>
                           </grid>
                         </constraints>
                         <properties/>
                         <clientProperties>
                           <JEditorPane.honorDisplayProperties class="java.lang.Boolean" value="true"/>
+                          <caretAspectRatio class="java.lang.Float" value="0.04"/>
                         </clientProperties>
                       </component>
-                      <vspacer id="985be">
-                        <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                      </vspacer>
                     </children>
                   </grid>
                   <component id="848dd" class="javax.swing.JLabel">
@@ -166,6 +168,9 @@
                     <properties>
                       <text value="Item ID"/>
                     </properties>
+                    <clientProperties>
+                      <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                    </clientProperties>
                   </component>
                   <component id="f50dc" class="javax.swing.JButton" binding="returnButton">
                     <constraints>
@@ -201,6 +206,9 @@
                 <properties>
                   <text value="Klantnaam"/>
                 </properties>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <hspacer id="6255c">
                 <constraints>
@@ -221,6 +229,9 @@
                 <properties>
                   <text value="Klantadres"/>
                 </properties>
+                <clientProperties>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
               </component>
               <component id="33f7e" class="javax.swing.JButton" binding="addLenderButton">
                 <constraints>
@@ -232,7 +243,7 @@
               </component>
             </children>
           </grid>
-          <grid id="4b223" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="4b223" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Administratie"/>
@@ -257,6 +268,9 @@
                     <properties>
                       <text value="Admin-paswoord"/>
                     </properties>
+                    <clientProperties>
+                      <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                    </clientProperties>
                   </component>
                   <hspacer id="5f8ab">
                     <constraints>
@@ -306,6 +320,9 @@
                         <properties>
                           <text value="Typenaam"/>
                         </properties>
+                        <clientProperties>
+                          <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                        </clientProperties>
                       </component>
                       <component id="20933" class="javax.swing.JButton" binding="addTypeButton">
                         <constraints>
@@ -342,6 +359,9 @@
                         <properties>
                           <text value="Item ID"/>
                         </properties>
+                        <clientProperties>
+                          <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                        </clientProperties>
                       </component>
                       <component id="5705e" class="javax.swing.JButton" binding="removeItemButton">
                         <constraints>
@@ -393,11 +413,23 @@
               </grid>
               <component id="de9ac" class="javax.swing.JTextPane" binding="itemsPane">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
                 <properties/>
+                <clientProperties>
+                  <JEditorPane.honorDisplayProperties class="java.lang.Boolean" value="true"/>
+                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
+                </clientProperties>
+              </component>
+              <component id="57849" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Items in stock van type"/>
+                </properties>
               </component>
             </children>
           </grid>
