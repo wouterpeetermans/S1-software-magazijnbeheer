@@ -1,41 +1,15 @@
 package be.magazijnbeheer.core;
 
-public class Lender {
-    private String name;
-    private String address;
+public interface Lender {
 
-    public Lender(){
-
-    }
-
-    public Lender(String name, String address){
-        this.name = name;
-        this.address = address;
-    }
-
-    public Integer getId() {
-        return this.hashCode();
-    }
-
-    @Override
-    public int hashCode(){
-        return Math.abs(name.hashCode() * address.hashCode());
-    }
+    public Integer getId();
 
 
-    public String getName() {
-        return name;
-    }
+    public String getName();
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name);
 
-    public String getAddress() {
-        return address;
-    }
+    public String getAddress();
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public void setAddress(String address);
 }

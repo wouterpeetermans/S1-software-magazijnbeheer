@@ -1,8 +1,5 @@
 package be.magazijnbeheer.core;
 
-import javax.help.Map;
-import javax.swing.*;
-import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 

@@ -29,7 +29,7 @@ public class ViewModel {
     }
 
     public Lender addLender(String name, String address) {
-        Lender lender =  new Lender(name,address);
+        Lender lender =  new Person(name,address);
         if(database.addLender(lender) != -1){
             return lender;
         }
