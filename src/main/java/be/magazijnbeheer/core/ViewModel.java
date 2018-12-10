@@ -14,16 +14,28 @@ public class ViewModel {
         return database.addType(new Type(typeName));
     }
 
-    public Integer addItem(String type) {
-        return database.addItemOfType(new Item(new Type(type)));
+    public Item addItem(String type) {
+        Item item = new Item(new Type(type));
+        if (database.addItemOfType(item) != -1){
+            return item;
+        }
+        else {
+            return null;
+        }
     }
 
     public void removeItem(String itemID) {
         database.removeItemOfType(new Item(Integer.parseInt(itemID)));
     }
 
-    public void addLender(String name, String address) {
-        database.addLender(new Lender(name,address));
+    public Lender addLender(String name, String address) {
+        Lender lender =  new Lender(name,address);
+        if(database.addLender(lender) != -1){
+            return lender;
+        }
+        else {
+            return null;
+        }
     }
 
     public void addLenderToItem(String lenderID, String itemID) {

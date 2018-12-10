@@ -1,6 +1,8 @@
 package be.magazijnbeheer.ui;
 
 import be.magazijnbeheer.core.Database;
+import be.magazijnbeheer.core.Item;
+import be.magazijnbeheer.core.Lender;
 import be.magazijnbeheer.core.ViewModel;
 
 import javax.swing.*;
@@ -62,7 +64,12 @@ public class UserInterface extends JFrame {
         addItemButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
-                    viewModel.addItem(addItemComboBox.getSelectedItem().toString());
+                    Item item = viewModel.addItem(addItemComboBox.getSelectedItem().toString());
+                    if (item != null){
+                        JOptionPane.showMessageDialog(null,"item of type: " + item.getType().getTypeName() + "\n added with ID: " + Integer.toString(item.getId()), "new item", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null,"an error occured", "error",JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");
@@ -81,7 +88,12 @@ public class UserInterface extends JFrame {
         });
         addLenderButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                viewModel.addLender(lenderNameField.getText(), lenderAddressField.getText());
+                Lender lender = viewModel.addLender(lenderNameField.getText(), lenderAddressField.getText());
+                if (lender != null){
+                    JOptionPane.showMessageDialog(null, lender.getName() + " added\nAddress: " + lender.getAddress() + "\nID: " + Integer.toString(lender.getId()), "new lender", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "an error occurred the user might already exist","error",JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         lentButton.addActionListener(new ActionListener() {

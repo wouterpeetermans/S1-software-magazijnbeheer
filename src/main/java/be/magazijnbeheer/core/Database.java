@@ -110,7 +110,7 @@ public class Database {
         System.out.println(item + " removed");
     }
 
-    public void addLender(Lender lender) {
+    public Integer addLender(Lender lender) {
         String sql = "INSERT INTO Lenders(ID,Name,Address) VALUES(?,?,?)";
         int lenderID;
         lenderID = -1;
@@ -126,10 +126,10 @@ public class Database {
             }
         } catch (SQLException e){
             e.printStackTrace();
-            return;
+            return lenderID;
         }
-        JOptionPane.showMessageDialog(null, lender.getName() + " added\nAddress: " + lender.getAddress() + "\nID: " + Integer.toString(lenderID), "new lender", JOptionPane.INFORMATION_MESSAGE);
         System.out.println(lender.getName() + " added, ID " + Integer.toString(lenderID));
+        return lenderID;
     }
 
     public void addLenderToItem(Integer lenderID, Item item) {
