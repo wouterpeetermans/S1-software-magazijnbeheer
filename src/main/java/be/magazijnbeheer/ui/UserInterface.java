@@ -30,6 +30,7 @@ public class UserInterface extends JFrame {
     private JButton addItemButton;
     private JButton removeItemButton;
     private JPanel rootPanel;
+    private JButton refreshLender;
     private ViewModel viewModel;
 
     private void startUI() {
@@ -87,6 +88,12 @@ public class UserInterface extends JFrame {
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 viewModel.removeLenderFromItem(itemIDFieldReturn.getText());
+                lendedPane.setText(viewModel.viewItemsLender(lenderIDFieldLent.getText()));
+                System.out.println("update lendedPlane");
+            }
+        });
+        refreshLender.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 lendedPane.setText(viewModel.viewItemsLender(lenderIDFieldLent.getText()));
                 System.out.println("update lendedPlane");
             }
