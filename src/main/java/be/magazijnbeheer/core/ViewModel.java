@@ -1,6 +1,7 @@
 package be.magazijnbeheer.core;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ViewModel {
     private Database database;
@@ -35,5 +36,9 @@ public class ViewModel {
 
     public String viewItemsLender(String lenderID) {
         return database.getItemsLender(Integer.parseInt(lenderID));
+    }
+
+    public ArrayList getAllTypes() {
+        return database.getAllTypes();
     }
 }

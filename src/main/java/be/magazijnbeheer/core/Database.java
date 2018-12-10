@@ -4,6 +4,7 @@ import javax.help.Map;
 import javax.swing.*;
 import java.io.Serializable;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
 
@@ -183,6 +184,28 @@ public class Database {
             return e.toString();
         }
         System.out.println("items lended by " + lenderID + " fetched");
+
+        return output;
+    }
+    public ArrayList getAllTypes() {
+        String sql = "SELECT TypeName FROM Types";
+        System.out.println(sql);
+        ResultSet set;
+        ArrayList<String> output = new ArrayList<String>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            set = pstmt.executeQuery();
+
+            while (set.next()){
+                output.add(set.getString("TypeName"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            output.clear();
+            output.add(e.toString());
+            return output;
+        }
+        System.out.println(output);
 
         return output;
     }

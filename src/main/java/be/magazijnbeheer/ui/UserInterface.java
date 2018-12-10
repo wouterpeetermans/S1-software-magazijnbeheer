@@ -1,5 +1,6 @@
 package be.magazijnbeheer.ui;
 
+import be.magazijnbeheer.core.Database;
 import be.magazijnbeheer.core.ViewModel;
 
 import javax.swing.*;
@@ -37,6 +38,7 @@ public class UserInterface extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+        addItemComboBox.setModel(new DefaultComboBoxModel(viewModel.getAllTypes().toArray()));
     }
 
     public UserInterface() {
@@ -50,6 +52,7 @@ public class UserInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (Arrays.equals(adminPasswordField.getPassword(), password)) {
                     viewModel.addType(addTypeTextField.getText());
+                    addItemComboBox.setModel(new DefaultComboBoxModel(viewModel.getAllTypes().toArray()));
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong password", "Wrong password", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Wrong password");
