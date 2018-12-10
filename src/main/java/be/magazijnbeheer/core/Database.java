@@ -231,7 +231,28 @@ public class Database {
         return output;
     }
 
-    public Integer getAmountItemsOfType(String type){
-        return 2;
+    public String getItemsOfType(String type){
+        String sql = "SELECT Items.ID, TypeName, LenderID FROM Items "
+                + "INNER JOIN Types on Items.TypeID = Types.ID "
+                + "WHERE LenderID IS NULL "
+                + "AND TypeName = ?";
+        ResultSet set;
+        String output = "";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,type);
+            set = pstmt.executeQuery();
+
+            while (set.next()){
+                output += set.getInt("ID") + "\t";
+                output += set.getString("TypeName") + "\n";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return e.toString();
+        }
+        System.out.println("items in stock fetched");
+
+        return output;
     }
 }

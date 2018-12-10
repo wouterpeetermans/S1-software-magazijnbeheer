@@ -57,4 +57,8 @@ public class ViewModel {
     public ArrayList getAllTypes() {
         return database.getAllTypes();
     }
+
+    public String getItemsOfType(String typeName){
+        return database.getItemsOfType(typeName);
+    }
 }

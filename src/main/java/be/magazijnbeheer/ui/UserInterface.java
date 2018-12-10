@@ -34,6 +34,7 @@ public class UserInterface extends JFrame {
     private JButton removeItemButton;
     private JPanel rootPanel;
     private JButton refreshLender;
+    private JTextPane itemsPane;
     private ViewModel viewModel;
 
     private void startUI() {
@@ -114,6 +115,13 @@ public class UserInterface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 lendedPane.setText(viewModel.viewItemsLender(lenderIDFieldLent.getText()));
                 System.out.println("update lendedPlane");
+            }
+        });
+
+        addItemComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                itemsPane.setText(viewModel.getItemsOfType(addItemComboBox.getSelectedItem().toString()));
             }
         });
     }
